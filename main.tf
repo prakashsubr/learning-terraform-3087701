@@ -34,7 +34,6 @@ module "blog_vpc" {
   }
 }
 
-
 module "autoscaling" {
   source  = "devops-workflow/autoscaling/aws"
   version = "3.2.1"
@@ -49,7 +48,7 @@ module "autoscaling" {
   target_group_arns = module.blog_alb.target_group_arns
   security_groups = [module.blog_sg.security_group_id] 
 
-  ami                    = data.aws_ami.app_ami.id
+  image_id                    = data.aws_ami.app_ami.id
   instance_type          = var.instance_type
 
 
