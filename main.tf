@@ -35,10 +35,8 @@ module "blog_vpc" {
 }
 
 module "autoscaling" {
-  source  = "devops-workflow/autoscaling/aws"
-  version = "3.2.1"
-
-
+  source  = "terraform-aws-modules/autoscaling/aws"
+  version = "8.0.0"
   # insert the 10 required variables here
   name = "blog"
   min_size = 1
@@ -50,7 +48,6 @@ module "autoscaling" {
 
   image_id                = data.aws_ami.app_ami.id
   instance_type          = var.instance_type
-
 
 }
 
