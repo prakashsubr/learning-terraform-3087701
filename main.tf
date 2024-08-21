@@ -36,7 +36,7 @@ module "blog_vpc" {
 
 module "autoscaling" {
   source  = "terraform-aws-modules/autoscaling/aws"
-  version = "4.1.0"
+  version = "8.0.0"
   # insert the 10 required variables here
   name = "blog"
   min_size = 1
@@ -53,8 +53,8 @@ module "autoscaling" {
 
 module "blog_alb" {
   source = "terraform-aws-modules/alb/aws"
- 
- 
+  version = "9.8.0"
+
   name    = "blog-alb"
   vpc_id  = module.blog_vpc.vpc_id
   subnets = module.blog_vpc.public_subnets
